@@ -21,6 +21,10 @@
 ## Índice - C#
 - [Implementações .NET com suporte](#implementações-net-com-suporte)
 - [Instalação](#instalação)
+- [Autenticando](#autenticando-o-ambiente-e-commerce)
+- [Pagamento](#pagamento)
+  - [Requisição Pagamento](#requisição-pagamento)
+  - [Cancelamento](#cancelamento)
 
 
 ## Implementações .NET com suporte
@@ -41,4 +45,39 @@ Execute o comando para instalar via [NuGet](https://www.nuget.org/packages/PicPa
 
 ```xml
 PM> Install-Package PicPay
+```
+
+## Autenticando o ambiente e-commerce
+```C#
+PicPayClient PP = new PicPayClient("5b008cef7f321d00ef2367b2");
+```
+
+## Pagamento
+#### Requisição de Pagamento
+
+```C#
+PaymentRequest body = new PaymentRequest
+{
+    ReferenceId = "102030",
+    CallbackUrl = "http://www.sualoja.com.br/callback",
+    ReturnUrl = "http://www.sualoja.com.br/cliente/pedido/102030",
+    Value = 20.51,
+    Buyer = new Buyer
+    {
+        FirstName = "João",
+        LastName = "Da Silva",
+        Document = "123.456.789-10",
+        Email = "test@picpay.com",
+        Phone = "+55 27 12345-6789"
+    }
+};
+var result = await PP.Payment.Create(body);
+```
+#### Cancelamento
+```C#
+PaymentRequest body = new PaymentRequest
+{
+    AuthorizationId = "555008cef7f321d00ef236333"
+};
+var result = await PP.Payment.Cancel(body, "102030");
 ```
