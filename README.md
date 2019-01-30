@@ -20,6 +20,7 @@
 
 ## Índice - C#
 - [Implementações .NET com suporte](#implementações-net-com-suporte)
+- [Instalação](#instalação)
 
 
 ## Implementações .NET com suporte
@@ -34,3 +35,10 @@ Essa biblioteca foi feito em (**.NET Standard 2.0 e VS2017**) e tem suporte das 
 * Universal Windows Platform 10.0.16299 ou superior
 
 Para mais informações: [.NET Standard](https://docs.microsoft.com/pt-br/dotnet/standard/net-standard).
+
+## Instalação
+Execute o comando para instalar via [NuGet](https://www.nuget.org/packages/PicPay/):
+
+```xml
+PM> Install-Package PicPay
+```
