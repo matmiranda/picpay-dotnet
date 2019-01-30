@@ -2,6 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageIconUrl>https://res.cloudinary.com/matmiranda/image/upload/v1548887430/PicPay_icon.png</PackageIconUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>PicPay</PackageTags>
+    <Authors>PicPay, Matheus Miranda</Authors>
+    <Description>Biblioteca para integração dos meios de pagamento do PicPay</Description>
+    <Copyright>Copyright © Matheus Miranda</Copyright>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/matmiranda/PicPay-NET/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/matmiranda/PicPay-NET</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/matmiranda/PicPay-NET.git</RepositoryUrl>
+    <Company>PicPay, Matheus Miranda</Company>
   </PropertyGroup>
 
   <ItemGroup>
