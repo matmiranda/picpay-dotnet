@@ -27,7 +27,7 @@
   - [Cancelamento](#cancelamento)
   - [Status](#status)
 - [Notificação](#notificação)
-  - [Cria notificação](#criar-notificação)
+  - [Criar notificação](#criar-notificação)
 
 ## Implementações .NET com suporte
 Essa biblioteca foi feito em (**.NET Standard 2.0 e VS2017**) e tem suporte das seguintes implementações do .NET:
