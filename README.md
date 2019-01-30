@@ -25,6 +25,7 @@
 - [Pagamento](#pagamento)
   - [Requisição Pagamento](#requisição-pagamento)
   - [Cancelamento](#cancelamento)
+  - [Status](#status)
 
 
 ## Implementações .NET com suporte
@@ -85,4 +86,8 @@ PaymentRequest body = new PaymentRequest
     AuthorizationId = "555008cef7f321d00ef236333"
 };
 var result = await PP.Payment.Cancel(body, "102030");
+```
+#### Status
+```C#
+var result = await PP.Payment.Status("102030");
 ```
