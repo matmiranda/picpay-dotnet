@@ -26,7 +26,8 @@
   - [Requisição Pagamento](#requisição-pagamento)
   - [Cancelamento](#cancelamento)
   - [Status](#status)
-
+- [Notificação](#notificação)
+  - [Cria notificação](#criar-notificação)
 
 ## Implementações .NET com suporte
 Essa biblioteca foi feito em (**.NET Standard 2.0 e VS2017**) e tem suporte das seguintes implementações do .NET:
@@ -54,12 +55,8 @@ PicPayClient PP = new PicPayClient("5b008cef7f321d00ef2367b2");
 ```
 
 ## Pagamento
-Seu e-commerce irá solicitar o pagamento de um pedido através do PicPay na finalização do carrinho de compras. Após a requisição http, o cliente deverá ser redirecionado para o endereço informada no campo paymentUrl para que o mesmo possa finalizar o pagamento.
-
-Assim que o pagamento for concluído o cliente será redirecionado para o endereço informada no campo returnUrl do json enviado pelo seu e-commerce no momento da requisição. Se não informado, nada acontecerá (o cliente permanecerá em nossa página de checkout).
-
-Caso seja identificado que seu cliente também é cliente PicPay, iremos enviar um push notification e uma notificação dentro do aplicativo PicPay avisando sobre o pagamento pendente. Para todos os casos iremos enviar um e-mail de pagamento pendente contendo o link de nossa página de checkout.
 #### Requisição de Pagamento
+Link: https://ecommerce.picpay.com/doc/#operation/postPayments
 
 ```C#
 PaymentRequest body = new PaymentRequest
@@ -80,6 +77,7 @@ PaymentRequest body = new PaymentRequest
 var result = await PP.Payment.Create(body);
 ```
 #### Cancelamento
+Link: https://ecommerce.picpay.com/doc/#operation/postCancellations
 ```C#
 PaymentRequest body = new PaymentRequest
 {
@@ -88,6 +86,19 @@ PaymentRequest body = new PaymentRequest
 var result = await PP.Payment.Cancel(body, "102030");
 ```
 #### Status
+Link: https://ecommerce.picpay.com/doc/#operation/getStatus
 ```C#
 var result = await PP.Payment.Status("102030");
+```
+
+## Notificação
+#### Criar notificação
+Link: https://ecommerce.picpay.com/doc/#operation/postCallbacks
+```C#
+var body = new NotificationRequest
+{
+    ReferenceId = "102030",
+    AuthorizationId = "555008cef7f321d00ef236333"
+};
+var result = await PP.Notification.Create(body, "4ef4edbd-5cda-42da-860b-0e8d7b90c784", "http://www.sualoja.com.br/callback");
 ```
