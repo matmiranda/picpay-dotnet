@@ -55,7 +55,7 @@ PicPayClient PP = new PicPayClient("5b008cef7f321d00ef2367b2");
 ```
 
 ## Pagamento
-#### Requisição de Pagamento
+#### Requisição Pagamento
 Link: https://ecommerce.picpay.com/doc/#operation/postPayments
 
 ```C#
