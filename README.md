@@ -28,6 +28,8 @@
   - [Status](#status)
 - [Notificação](#notificação)
   - [Criar notificação](#criar-notificação)
+- [Tabela](#tabela)
+  -[Status Code](#status-code)
 
 ## Implementações .NET com suporte
 Essa biblioteca foi feito em (**.NET Standard 2.0 e VS2017**) e tem suporte das seguintes implementações do .NET:
@@ -103,3 +105,13 @@ var body = new NotificationRequest
 var url = "http://www.sualoja.com.br/callback";
 var result = await PP.Notification.Create(body, "4ef4edbd-5cda-42da-860b-0e8d7b90c784", url);
 ```
+
+## Tabela
+#### Status Code
+
+| Código  | Status | Descrição |
+| ------------- | ------------- | -- |
+| 200  | OK  | Equivalente ao status HTTP 200. OK indica que a solicitação foi bem-sucedida e que as informações solicitadas estão na resposta. Este é o código de status mais comuns a ser recebido.
+| 401 | Unauthorized  | Equivalente ao status HTTP 401. Unauthorized indica que o recurso solicitado requer autenticação. O cabeçalho WWW-Authenticate contém os detalhes de como realizar a autenticação. |
+| 422 | UnprocessableEntity | Equivalente ao status HTTP 422. UnprocessableEntity indica que o servidor entende o tipo de conteúdo da entidade de solicitação e a sintaxe da entidade de solicitação está correta, mas não conseguiu processar as instruções contidas.
+| 500 | InternalServerError | Equivalente ao status HTTP 500. InternalServerError indica que ocorreu um erro genérico no servidor. |
