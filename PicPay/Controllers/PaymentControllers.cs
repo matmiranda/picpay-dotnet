@@ -15,7 +15,7 @@ namespace PicPay
             HttpResponseMessage response = await PicPayClient.HttpClient.PostAsync("payments", stringContent);
             PaymentResponse paymentResponse = 
                 JsonConvert.DeserializeObject<PaymentResponse>(await response.Content.ReadAsStringAsync());
-            paymentResponse.HttpStatusCode = response.StatusCode;
+            paymentResponse.StatusCode = (int)response.StatusCode;
             return paymentResponse;
         }
         public async Task<PaymentResponse> Cancel(PaymentRequest body, string referenceId)
@@ -26,7 +26,7 @@ namespace PicPay
                 await PicPayClient.HttpClient.PostAsync($"payments/{referenceId}/cancellations", stringContent);
             PaymentResponse paymentResponse = 
                 JsonConvert.DeserializeObject<PaymentResponse>(await response.Content.ReadAsStringAsync());
-            paymentResponse.HttpStatusCode = response.StatusCode;
+            paymentResponse.StatusCode = (int)response.StatusCode;
             return paymentResponse;
         }
         public async Task<PaymentResponse> Status(string referenceId)
@@ -34,7 +34,7 @@ namespace PicPay
             HttpResponseMessage response = await PicPayClient.HttpClient.GetAsync($"payments/{referenceId}/status");
             PaymentResponse paymentResponse = 
                 JsonConvert.DeserializeObject<PaymentResponse>(await response.Content.ReadAsStringAsync());
-            paymentResponse.HttpStatusCode = response.StatusCode;
+            paymentResponse.StatusCode = (int)response.StatusCode;
             return paymentResponse;
         }
     }

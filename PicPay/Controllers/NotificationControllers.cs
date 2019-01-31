@@ -17,7 +17,7 @@ namespace PicPay
             HttpResponseMessage response = await PicPayClient.HttpClient.PostAsync(url, stringContent);
             NotificationResponse notificationResponse = 
                 JsonConvert.DeserializeObject<NotificationResponse>(await response.Content.ReadAsStringAsync());
-            notificationResponse.HttpStatusCode = response.StatusCode;
+            notificationResponse.StatusCode = (int)response.StatusCode;
             PicPayClient.HttpClient.DefaultRequestHeaders.Remove("x-seller-token");
             PicPayClient.HttpClient.DefaultRequestHeaders.Add("x-picpay-token", PicPayClient.Token);
             return notificationResponse;

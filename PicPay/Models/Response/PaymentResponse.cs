@@ -17,6 +17,6 @@ namespace PicPay.Models
         [JsonProperty("status", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string Status { get; set; }
         [JsonIgnore]
-        public HttpStatusCode HttpStatusCode { get; set; }
+        public int StatusCode { get; set; }
     }
 }
