@@ -115,3 +115,5 @@ var result = await PP.Notification.Create(body, "4ef4edbd-5cda-42da-860b-0e8d7b9
 | 401 | Unauthorized  | Equivalente ao status HTTP 401. Unauthorized indica que o recurso solicitado requer autenticação. O cabeçalho WWW-Authenticate contém os detalhes de como realizar a autenticação. |
 | 422 | UnprocessableEntity | Equivalente ao status HTTP 422. UnprocessableEntity indica que o servidor entende o tipo de conteúdo da entidade de solicitação e a sintaxe da entidade de solicitação está correta, mas não conseguiu processar as instruções contidas.
 | 500 | InternalServerError | Equivalente ao status HTTP 500. InternalServerError indica que ocorreu um erro genérico no servidor. |
+
+Lista de códigos de estado HTTP: [HTTP Status Codes](https://pt.wikipedia.org/wiki/Lista_de_c%C3%B3digos_de_estado_HTTP)
