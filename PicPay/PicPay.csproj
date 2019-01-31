@@ -12,6 +12,7 @@
     <PackageProjectUrl>https://github.com/matmiranda/PicPay-NET</PackageProjectUrl>
     <RepositoryUrl>https://github.com/matmiranda/PicPay-NET.git</RepositoryUrl>
     <Company>PicPay, Matheus Miranda</Company>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
