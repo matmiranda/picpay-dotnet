@@ -100,5 +100,6 @@ var body = new NotificationRequest
     ReferenceId = "102030",
     AuthorizationId = "555008cef7f321d00ef236333"
 };
-var result = await PP.Notification.Create(body, "4ef4edbd-5cda-42da-860b-0e8d7b90c784", "http://www.sualoja.com.br/callback");
+var url = "http://www.sualoja.com.br/callback";
+var result = await PP.Notification.Create(body, "4ef4edbd-5cda-42da-860b-0e8d7b90c784", url);
 ```
