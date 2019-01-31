@@ -14,7 +14,7 @@
         <img src="https://img.shields.io/badge/License-MIT-brightgreen.svg"
             alt="MIT"></a>
     <a href="https://www.nuget.org/packages/PicPay">
-        <img src="https://img.shields.io/badge/Nuget-v1.0.0-blue.svg"
+        <img src="https://img.shields.io/badge/Nuget-v1.0.1-blue.svg"
             alt="NuGet"></a>
 </p>
 
