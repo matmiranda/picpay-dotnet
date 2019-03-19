@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://dev.wirecard.com.br/v2.0/">
-    <img src="https://res.cloudinary.com/matmiranda/image/upload/v1548888382/PicPay%20%2B%20.NET.jpg" alt="Wirecard logo" width=400>
+    <img src="https://raw.githubusercontent.com/matmiranda/PicPay-NET/master/Images/PicPay%20%2B%20.NET.jpg" alt="Wirecard logo" width=400>
   </a>
 </p>
 <p align="center">
