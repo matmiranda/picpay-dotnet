@@ -18,5 +18,7 @@ namespace PicPay.Models
         public string Status { get; set; }
         [JsonIgnore]
         public int StatusCode { get; set; }
+        [JsonProperty("qrcode", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public QrCode QrCode { get; set; }
     }
 }
