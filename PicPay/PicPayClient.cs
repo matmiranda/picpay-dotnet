@@ -1,9 +1,10 @@
-﻿using System;
+﻿using PokeSpace.Application.PicPay.Controllers;
+using System;
 using System.Diagnostics;
 using System.Net.Http;
 using System.Reflection;
 
-namespace PicPay
+namespace PokeSpace.Application.PicPay
 {
     public class PicPayClient
     {

@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace PicPay.Models
+namespace PokeSpace.Application.PicPay.Models.Request
 {
     public class NotificationRequest
     {

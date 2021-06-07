@@ -1,10 +1,11 @@
 ﻿using Newtonsoft.Json;
-using PicPay.Models;
+using PokeSpace.Application.PicPay.Models.Request;
+using PokeSpace.Application.PicPay.Models.Response;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PicPay
+namespace PokeSpace.Application.PicPay.Controllers
 {
     public class PaymentControllers
     {
@@ -13,7 +14,7 @@ namespace PicPay
             string json = JsonConvert.SerializeObject(body);
             StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
             HttpResponseMessage response = await PicPayClient.HttpClient.PostAsync("payments", stringContent);
-            PaymentResponse paymentResponse = 
+            PaymentResponse paymentResponse =
                 JsonConvert.DeserializeObject<PaymentResponse>(await response.Content.ReadAsStringAsync());
             paymentResponse.StatusCode = (int)response.StatusCode;
             return paymentResponse;
@@ -22,9 +23,9 @@ namespace PicPay
         {
             string json = JsonConvert.SerializeObject(body);
             StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
-            HttpResponseMessage response = 
+            HttpResponseMessage response =
                 await PicPayClient.HttpClient.PostAsync($"payments/{referenceId}/cancellations", stringContent);
-            PaymentResponse paymentResponse = 
+            PaymentResponse paymentResponse =
                 JsonConvert.DeserializeObject<PaymentResponse>(await response.Content.ReadAsStringAsync());
             paymentResponse.StatusCode = (int)response.StatusCode;
             return paymentResponse;
@@ -32,7 +33,7 @@ namespace PicPay
         public async Task<PaymentResponse> Status(string referenceId)
         {
             HttpResponseMessage response = await PicPayClient.HttpClient.GetAsync($"payments/{referenceId}/status");
-            PaymentResponse paymentResponse = 
+            PaymentResponse paymentResponse =
                 JsonConvert.DeserializeObject<PaymentResponse>(await response.Content.ReadAsStringAsync());
             paymentResponse.StatusCode = (int)response.StatusCode;
             return paymentResponse;

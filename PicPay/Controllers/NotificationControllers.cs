@@ -1,10 +1,11 @@
 ﻿using Newtonsoft.Json;
-using PicPay.Models;
+using PokeSpace.Application.PicPay.Models.Request;
+using PokeSpace.Application.PicPay.Models.Response;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PicPay
+namespace PokeSpace.Application.PicPay.Controllers
 {
     public class NotificationControllers
     {
@@ -15,7 +16,7 @@ namespace PicPay
             string json = JsonConvert.SerializeObject(body);
             StringContent stringContent = new StringContent(json, Encoding.UTF8, "application/json");
             HttpResponseMessage response = await PicPayClient.HttpClient.PostAsync(url, stringContent);
-            NotificationResponse notificationResponse = 
+            NotificationResponse notificationResponse =
                 JsonConvert.DeserializeObject<NotificationResponse>(await response.Content.ReadAsStringAsync());
             notificationResponse.StatusCode = (int)response.StatusCode;
             PicPayClient.HttpClient.DefaultRequestHeaders.Remove("x-seller-token");
