@@ -1,22 +1,6 @@
-<p align="center">
-  <a href="https://dev.wirecard.com.br/v2.0/">
-    <img src="https://raw.githubusercontent.com/matmiranda/PicPay-NET/master/Images/PicPay%20%2B%20.NET.jpg" alt="Wirecard logo" width=400>
-  </a>
-</p>
-<p align="center">
-    O jeito mais simples e rápido de integrar o PicPay a sua aplicação .NET e feito com base nas APIs REST do PicPay.
-  <br>
-  <br>
-    <a href="https://ecommerce.picpay.com/doc/">
-        <img src="https://img.shields.io/badge/Docs-PicPay-orange.svg"
-            alt="Docs"></a>
-    <a href="https://github.com/matmiranda/PicPay-NET/blob/master/LICENSE">
-        <img src="https://img.shields.io/badge/License-MIT-brightgreen.svg"
-            alt="MIT"></a>
-    <a href="https://www.nuget.org/packages/PicPay">
-        <img src="https://img.shields.io/badge/Nuget-v1.0.1-blue.svg"
-            alt="NuGet"></a>
-</p>
+[![License](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
+![dotnet status](https://github.com/matmiranda/picpay-dotnet/actions/workflows/dotnet.yml/badge.svg?event=push)
+[![NuGet Badge](https://buildstats.info/nuget/PicPay)](https://www.nuget.org/packages/PicPay)
 
 ## Índice - C#
 - [Implementações .NET com suporte](#implementações-net-com-suporte)
