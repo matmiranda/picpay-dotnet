@@ -4,6 +4,19 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>PicPay for dotnet</Title>
+    <Version>1.0.2</Version>
+    <Authors>Matheus Miranda, PicPay</Authors>
+    <Company>Matheus Miranda, PicPay</Company>
+    <Description>Biblioteca para consumir api picpay</Description>
+    <Copyright>Copyright (c) 2019 Matheus Miranda</Copyright>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/matmiranda/picpay-dotnet</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>picpay;dotnet</PackageTags>
+    <PackageReleaseNotes>Nova versão dotnet 7</PackageReleaseNotes>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,6 +25,17 @@
 
   <ItemGroup>
     <Folder Include="Model\Request\NovaPasta\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
