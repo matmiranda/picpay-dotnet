@@ -17,7 +17,7 @@ namespace PicPayTest
             {
                 Body = body,
                 Method = Method.Post,
-                Endpoint = "{seu_endpoint}"
+                Endpoint = "payments/102030/refunds"
             };
 
             var result = await client.ExecuteAsync(request);
