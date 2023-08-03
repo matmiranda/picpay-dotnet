@@ -23,6 +23,13 @@ namespace PicPayTest
                 }
             };
 
+            var request = new PicPayRequest<object>
+            {
+                Body = body,
+                Method = Method.Post,
+                Endpoint = "{seu_endpoint}"
+            };
+
             var result = await client.ExecuteAsync(request);
             Assert.Pass();
         }
