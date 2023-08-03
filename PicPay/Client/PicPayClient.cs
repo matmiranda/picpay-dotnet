@@ -10,7 +10,7 @@
         {
             _token = token;
             _baseUrl = baseUrl;
-            _restClient = restClient ?? new RestClient();
+            _restClient = restClient ?? new RestClient(baseUrl.GetDescription());
         }
 
         public async Task<RestResponse> ExecuteAsync<T>(PicPayRequest<T> picPayRequest) where T : class

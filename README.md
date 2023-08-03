@@ -16,17 +16,7 @@
   -[Status Code](#status-code)
 
 ## Implementações .NET com suporte
-Essa biblioteca foi feito em (**.NET Standard 2.0 e VS2017**) e tem suporte das seguintes implementações do .NET:
-
-* .NET Core 2.0 ou superior
-* .NET Framework 4.6.1 ou superior
-* Mono 5.4 ou superior
-* Xamarin.iOS 10.14 ou superior
-* Xamarin.Mac 3.8 ou superior
-* Xamarin.Android 8.0 ou superior
-* Universal Windows Platform 10.0.16299 ou superior
-
-Para mais informações: [.NET Standard](https://docs.microsoft.com/pt-br/dotnet/standard/net-standard).
+A biblioteca foi feito em **[.NET Standard 2.1](https://learn.microsoft.com/pt-br/dotnet/standard/net-standard?tabs=net-standard-2-1) e  VS2022**
 
 ## Instalação
 Execute o comando para instalar via [NuGet](https://www.nuget.org/packages/PicPay/):
@@ -37,20 +27,32 @@ PM> Install-Package PicPay
 
 ## Autenticando o ambiente e-commerce
 ```C#
-PicPayClient PP = new PicPayClient("5b008cef7f321d00ef2367b2");
+var client = new PicPayClient(BaseUrl.ProductionEcommerce, "{seu_token}");
+```
+
+## Exemplo básico
+```C#
+var request = new PicPayRequest<string>
+{
+    Body = "{seu json aqui ou seu objeto}",
+    Method = Method.Get,
+    Endpoint = "{seu_endpoint}"
+};
+
+var result = await client.ExecuteAsync(request);
 ```
 
 ## Pagamento
 #### Requisição Pagamento
-Link: https://ecommerce.picpay.com/doc/#operation/postPayments
+Para mais detalhes: [API Refence](https://picpay.github.io/picpay-docs-digital-payments/checkout/resources/api-reference)
 
 ```C#
-PaymentRequest body = new PaymentRequest
+var body = new PaymentRequest
 {
     ReferenceId = "102030",
     CallbackUrl = "http://www.sualoja.com.br/callback",
     ReturnUrl = "http://www.sualoja.com.br/cliente/pedido/102030",
-    Value = 20.51,
+    Value = 20.51M,
     Buyer = new Buyer
     {
         FirstName = "João",
@@ -60,7 +62,15 @@ PaymentRequest body = new PaymentRequest
         Phone = "+55 27 12345-6789"
     }
 };
-var result = await PP.Payment.Create(body);
+
+var request = new PicPayRequest<PaymentRequest>
+{
+    Body = body,
+    Method = Method.Post,
+    Endpoint = "{seu_endpoint}"
+};
+
+var result = await client.ExecuteAsync(request);
 ```
 #### Cancelamento
 Link: https://ecommerce.picpay.com/doc/#operation/postCancellations

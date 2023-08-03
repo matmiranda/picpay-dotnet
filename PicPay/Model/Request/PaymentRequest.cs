@@ -9,7 +9,7 @@
         [JsonPropertyName("returnUrl"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? ReturnUrl { get; set; }
         [JsonPropertyName("value"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public float? Value { get; set; }
+        public decimal? Value { get; set; }
         [JsonPropertyName("expiresAt"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public DateTime? ExpiresAt { get; set; }
         [JsonPropertyName("channel"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
@@ -25,7 +25,7 @@
         [JsonPropertyName("autoCapture"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public bool? AutoCapture { get; set; }
         [JsonPropertyName("amount"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
-        public float? Amount { get; set; }
+        public decimal? Amount { get; set; }
         [JsonPropertyName("authorizationId"), JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public string? AuthorizationId { get; set; }
     }

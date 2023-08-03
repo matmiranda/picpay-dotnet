@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PicPay", "PicPay\PicPay.csproj", "{10E42A89-C946-48E0-96F3-D7EDEA212A30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PicPay", "PicPay\PicPay.csproj", "{10E42A89-C946-48E0-96F3-D7EDEA212A30}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PicPayTest", "PicPayTest\PicPayTest.csproj", "{8AE285A1-3673-41BD-B243-77EEC92295DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{10E42A89-C946-48E0-96F3-D7EDEA212A30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10E42A89-C946-48E0-96F3-D7EDEA212A30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10E42A89-C946-48E0-96F3-D7EDEA212A30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AE285A1-3673-41BD-B243-77EEC92295DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AE285A1-3673-41BD-B243-77EEC92295DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AE285A1-3673-41BD-B243-77EEC92295DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AE285A1-3673-41BD-B243-77EEC92295DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
