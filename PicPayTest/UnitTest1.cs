@@ -9,18 +9,8 @@ namespace PicPayTest
 
             var body = new PaymentRequest
             {
-                ReferenceId = "102030",
-                CallbackUrl = "http://www.sualoja.com.br/callback",
-                ReturnUrl = "http://www.sualoja.com.br/cliente/pedido/102030",
-                Value = 20.51M,
-                Buyer = new Buyer
-                {
-                    FirstName = "João",
-                    LastName = "Da Silva",
-                    Document = "123.456.789-10",
-                    Email = "test@picpay.com",
-                    Phone = "+55 27 12345-6789"
-                }
+                AuthorizationId = "555008cef7f321d00ef236333",
+                Amount = 50.05M
             };
 
             var request = new PicPayRequest<object>

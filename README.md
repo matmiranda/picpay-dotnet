@@ -21,8 +21,8 @@ A biblioteca foi feito em **[.NET Standard 2.1](https://learn.microsoft.com/pt-b
 ## Instalação
 Execute o comando para instalar via [NuGet](https://www.nuget.org/packages/PicPay/):
 
-```xml
-PM> Install-Package PicPay
+```.net cli
+> dotnet add package PicPay
 ```
 
 ## Autenticando o ambiente e-commerce
@@ -31,6 +31,7 @@ var client = new PicPayClient(BaseUrl.ProductionEcommerce, "{seu_token}");
 ```
 
 ## Exemplo básico
+Para mais detalhes: [API Refence](https://picpay.github.io/picpay-docs-digital-payments/checkout/resources/api-reference)
 ```C#
 var request = new PicPayRequest<string>
 {
@@ -42,9 +43,7 @@ var request = new PicPayRequest<string>
 var result = await client.ExecuteAsync(request);
 ```
 
-## Pagamento
-#### Requisição Pagamento
-Para mais detalhes: [API Refence](https://picpay.github.io/picpay-docs-digital-payments/checkout/resources/api-reference)
+## Criar pedido para pagamento
 
 ```C#
 var body = new PaymentRequest
@@ -72,48 +71,37 @@ var request = new PicPayRequest<PaymentRequest>
 
 var result = await client.ExecuteAsync(request);
 ```
-#### Cancelamento
-Link: https://ecommerce.picpay.com/doc/#operation/postCancellations
+## Cancelar pedido de pagamento
+
 ```C#
-PaymentRequest body = new PaymentRequest
+var body = new PaymentRequest
 {
-    AuthorizationId = "555008cef7f321d00ef236333"
+    AuthorizationId = "555008cef7f321d00ef236333",
+    Amount = 50.05M
 };
-var result = await PP.Payment.Cancel(body, "102030");
-```
-#### Status
-Link: https://ecommerce.picpay.com/doc/#operation/getStatus
-```C#
-var result = await PP.Payment.Status("102030");
-```
 
-## Notificação
-#### Criar notificação
-Link: https://ecommerce.picpay.com/doc/#operation/postCallbacks
-```C#
-var body = new NotificationRequest
+var request = new PicPayRequest<PaymentRequest>
 {
-    ReferenceId = "102030",
-    AuthorizationId = "555008cef7f321d00ef236333"
+    Body = body,
+    Method = Method.Post,
+    Endpoint = "payments/102030/refunds"
 };
-var url = "http://www.sualoja.com.br/callback";
-var result = await PP.Notification.Create(body, "4ef4edbd-5cda-42da-860b-0e8d7b90c784", url);
+
+var result = await client.ExecuteAsync(request);
 ```
-
-## Tabela
-#### Status Code
-
-| Código  | Status | Descrição |
-| ------------- | ------------- | -- |
-| 200  | OK  | Equivalente ao status HTTP 200. OK indica que a solicitação foi bem-sucedida e que as informações solicitadas estão na resposta. Este é o código de status mais comuns a ser recebido.
-| 401 | Unauthorized  | Equivalente ao status HTTP 401. Unauthorized indica que o recurso solicitado requer autenticação. O cabeçalho WWW-Authenticate contém os detalhes de como realizar a autenticação. |
-| 422 | UnprocessableEntity | Equivalente ao status HTTP 422. UnprocessableEntity indica que o servidor entende o tipo de conteúdo da entidade de solicitação e a sintaxe da entidade de solicitação está correta, mas não conseguiu processar as instruções contidas.
-| 500 | InternalServerError | Equivalente ao status HTTP 500. InternalServerError indica que ocorreu um erro genérico no servidor. |
-
-Exemplo:
+## Consultar Status do pedido
 ```C#
-var result = await PP.Payment.Status("102030");
-var code = result.StatusCode;
+var request = new PicPayRequest<object>
+{
+    Method = Method.Get,
+    Endpoint = "payments/102030/status"
+};
+
+var result = await client.ExecuteAsync(request);
 ```
 
-Lista de códigos de estado HTTP: [HTTP Status Codes](https://pt.wikipedia.org/wiki/Lista_de_c%C3%B3digos_de_estado_HTTP) 👈
+## Notificação de mudança no pedido
+
+```C#
+Estamos trabalhando
+```
