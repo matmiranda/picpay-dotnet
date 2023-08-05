@@ -17,6 +17,7 @@
     <PackageTags>picpay;dotnet</PackageTags>
     <PackageReleaseNotes>Nova versão dotnet 7</PackageReleaseNotes>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageIcon>picpay-dotnet.png</PackageIcon>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -38,6 +39,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\..\..\..\..\Downloads\picpay-dotnet.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Include="..\LICENSE">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
