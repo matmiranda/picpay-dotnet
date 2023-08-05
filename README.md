@@ -25,8 +25,56 @@ Execute o comando para instalar via [NuGet](https://www.nuget.org/packages/PicPa
 > dotnet add package PicPay
 ```
 
+## Autenticando o ambiente e-commerce
+```C#
+var config = new PicPayConfig
+{
+    BaseUrl = BaseUrl.ProductionEcommerce,
+    Token = "your-token"
+};
+
+var client = new PicPayClient(config);
+```
+Para mais informação: [API Refence](https://picpay.github.io/picpay-docs-digital-payments/checkout/resources/api-reference)
 
 
+## Criar pedido para pagamento
+
+```C#
+var body = new PaymentRequest
+{
+    ReferenceId = "102030",
+    CallbackUrl = "http://www.sualoja.com.br/callback",
+    ReturnUrl = "http://www.sualoja.com.br/cliente/pedido/102030",
+    Value = 20.51M,
+    Buyer = new Buyer
+    {
+        FirstName = "João",
+        LastName = "Da Silva",
+        Document = "123.456.789-10",
+        Email = "test@picpay.com",
+        Phone = "+55 27 12345-6789"
+    }
+};
+
+var response = await client.Payment.CreateAsync(body);
+```
+## Capturar pagamento
+
+```C#
+var body = new PaymentRequest
+{
+    Amount= 12.04M
+};
+
+var response = await client.Payment.CaptureAsync(body, "102030");
+```
+## Cancelar pedido de pagamento
+```C#
+Estamos trabalhando
+```
+
+## Consultar Status do pedido
 ```C#
 Estamos trabalhando
 ```
