@@ -10,22 +10,20 @@
   - [Requisição Pagamento](#requisição-pagamento)
   - [Cancelamento](#cancelamento)
   - [Status](#status)
-- [Notificação](#notificação)
-  - [Criar notificação](#criar-notificação)
 - [Tabela](#tabela)
   -[Status Code](#status-code)
 
 ## Implementações .NET com suporte
 A biblioteca foi feito em **[.NET Standard 2.1](https://learn.microsoft.com/pt-br/dotnet/standard/net-standard?tabs=net-standard-2-1) e  VS2022**
 
-## Instalação
+## Instalação da biblioteca
 Execute o comando para instalar via [NuGet](https://www.nuget.org/packages/PicPay/):
 
 ```.net cli
 > dotnet add package PicPay
 ```
 
-## Autenticando o ambiente e-commerce
+## Configurando e Autenticando o ambiente
 ```C#
 var config = new PicPayConfig
 {
@@ -37,9 +35,7 @@ var client = new PicPayClient(config);
 ```
 Para mais informação: [API Refence](https://picpay.github.io/picpay-docs-digital-payments/checkout/resources/api-reference)
 
-
 ## Criar pedido para pagamento
-
 ```C#
 var body = new PaymentRequest
 {
@@ -59,8 +55,8 @@ var body = new PaymentRequest
 
 var response = await client.Payment.CreateAsync(body);
 ```
-## Capturar pagamento
 
+## Capturar pagamento
 ```C#
 var body = new PaymentRequest
 {
@@ -69,6 +65,7 @@ var body = new PaymentRequest
 
 var response = await client.Payment.CaptureAsync(body, "102030");
 ```
+
 ## Cancelar pedido de pagamento
 ```C#
 var body = new PaymentRequest
