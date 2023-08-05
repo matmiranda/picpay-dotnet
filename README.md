@@ -71,10 +71,20 @@ var response = await client.Payment.CaptureAsync(body, "102030");
 ```
 ## Cancelar pedido de pagamento
 ```C#
-Estamos trabalhando
+var body = new PaymentRequest
+{
+    AuthorizationId = "555008cef7f321d00ef236333",
+    Amount= 50.05M
+};
+
+var referenceId = "102030";
+
+var response = await client.Payment.CancelAsync(body, referenceId);
 ```
 
 ## Consultar Status do pedido
 ```C#
-Estamos trabalhando
+var referenceId = "102030";
+
+var response = await client.Payment.StatusAsync(referenceId);
 ```
