@@ -19,12 +19,22 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn></NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn></NoWarn>
+  </PropertyGroup>
+
   <ItemGroup>
-    <PackageReference Include="RestSharp" Version="110.2.0" />
+    <Compile Remove="Model\Request\NovaPasta\**" />
+    <EmbeddedResource Remove="Model\Request\NovaPasta\**" />
+    <None Remove="Model\Request\NovaPasta\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Model\Request\NovaPasta\" />
+    <PackageReference Include="RestSharp" Version="110.2.0" />
   </ItemGroup>
 
   <ItemGroup>

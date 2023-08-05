@@ -2,6 +2,6 @@
 {
     public interface IPicPayClient
     {
-        Task<RestResponse> ExecuteAsync<T>(PicPayRequest<T> picPayRequest) where T : class;
+        public PaymentService Payment { get; }
     }
 }

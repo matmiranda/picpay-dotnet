@@ -9,5 +9,13 @@
             var version = attribute?.InformationalVersion;
             return $"picpay-dotnet/{version}";
         }
+
+        internal static PaymentResponse? GetJsonObject(string? content)
+        {
+            if (!string.IsNullOrEmpty(content))
+                return JsonSerializer.Deserialize<PaymentResponse>(content);
+            else
+                return null;
+        }
     }
 }

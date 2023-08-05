@@ -2,30 +2,15 @@
 {
     public class PicPayClient : IPicPayClient
     {
-        private readonly string _token;
-        private readonly BaseUrl _baseUrl;
-        private readonly IRestClient _restClient;
+        private readonly PicPayConfig _picPayConfig;
 
-        public PicPayClient(BaseUrl baseUrl, string token, IRestClient? restClient = null)
+        public PicPayClient(PicPayConfig picPayConfig)
         {
-            _token = token;
-            _baseUrl = baseUrl;
-            _restClient = restClient ?? new RestClient(baseUrl.GetDescription());
+            picPayConfig.RestClient ??= new RestClient(picPayConfig.BaseUrl.GetDescription());
+            _picPayConfig = picPayConfig;
+            Payment = new PaymentService(_picPayConfig);
         }
 
-        public async Task<RestResponse> ExecuteAsync<T>(PicPayRequest<T> picPayRequest) where T : class
-        {
-            var request = new RestRequest(picPayRequest.Endpoint, (RestSharp.Method)picPayRequest.Method);
-            if (picPayRequest.Body != null)
-                request.AddJsonBody(picPayRequest.Body, ContentType.Json);
-            if (_baseUrl == BaseUrl.ProductionEcommerce)
-                request.AddOrUpdateHeader("x-picpay-token", _token);
-            request.AddOrUpdateHeader("accept", ContentType.Json);
-            request.AddOrUpdateHeader("user-agent", PicPayUtil.GetUserAgent());
-            if (picPayRequest.Headers != null)
-                foreach (var header in picPayRequest.Headers)
-                    request.AddOrUpdateHeader(header.Key, header.Value);
-            return await _restClient.ExecuteAsync(request);
-        }
+        public PaymentService Payment { get; }
     }
 }
