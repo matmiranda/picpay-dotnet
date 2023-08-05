@@ -39,7 +39,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\..\..\..\Downloads\picpay-dotnet.png">
+    <None Include="..\Icon\picpay-dotnet.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
