@@ -6,7 +6,7 @@
 - [Implementações .NET com suporte](#implementações-net-com-suporte)
 - [Instalação da biblioteca](#instalação-da-biblioteca)
 - [Configurando e Autenticando o ambiente](#configurando-e-autenticando-o-ambiente)
-- [Pagamento](#)
+- Pagamento
   - [Criar pedido para pagamento](#criar-pedido-para-pagamento)
   - [Capturar pagamento](#capturar-pagamento)
   - [Cancelar pedido de pagamento](#cancelar-pedido-de-pagamento)
