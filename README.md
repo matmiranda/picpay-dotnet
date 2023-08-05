@@ -4,14 +4,13 @@
 
 ## Índice - C#
 - [Implementações .NET com suporte](#implementações-net-com-suporte)
-- [Instalação](#instalação)
-- [Autenticando](#autenticando-o-ambiente-e-commerce)
-- [Pagamento](#pagamento)
-  - [Requisição Pagamento](#requisição-pagamento)
-  - [Cancelamento](#cancelamento)
-  - [Status](#status)
-- [Tabela](#tabela)
-  -[Status Code](#status-code)
+- [Instalação da biblioteca](#instalação-da-biblioteca)
+- [Configurando e Autenticando o ambiente](#configurando-e-autenticando-o-ambiente)
+- [Pagamento](#)
+  - [Criar pedido para pagamento](#criar-pedido-para-pagamento)
+  - [Capturar pagamento](#capturar-pagamento)
+  - [Cancelar pedido de pagamento](#cancelar-pedido-de-pagamento)
+  - [Consultar Status do pedido](#consultar-status-do-pedido)
 
 ## Implementações .NET com suporte
 A biblioteca foi feito em **[.NET Standard 2.1](https://learn.microsoft.com/pt-br/dotnet/standard/net-standard?tabs=net-standard-2-1) e  VS2022**
