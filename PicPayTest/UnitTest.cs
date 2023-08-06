@@ -45,34 +45,51 @@ namespace PicPayTest
         [Test]
         public async Task MockCretaPaymentAysc()
         {
-            var body = new PaymentRequest
+            var paymentRequest = new PaymentRequest
             {
                 ReferenceId = "102030"
             };
-            var mockRestClient = new Mock<IRestClient>();
 
-            var mockPicPayConfig = new Mock<IPicPayConfig>();
-            mockPicPayConfig.SetupGet(config => config.Token).Returns("your-token");
-            mockPicPayConfig.Setup(config => config.RestClient).Returns(mockRestClient.Object);
-
-            var paymentService = new PaymentService(mockPicPayConfig.Object);
-            var paymentRequest = new PaymentRequest();
-            var expectedResponse = new RestResponse
+            var responseMock = new PaymentResponse
             {
-                StatusCode = HttpStatusCode.OK,
-                Content = JsonSerializer.Serialize(body)
+                ReferenceId = "102030",
+                PaymentUrl = "teste ok"
             };
 
+            // Crie um mock do IRestClientWrapper
+            var mockRestClient = new Mock<IRestClient>();
+
+            // Defina o valor de retorno que você deseja para o método ExecuteAsync
+            var restResponse = new RestResponse
+            {
+                StatusCode = HttpStatusCode.Created,
+                Content = JsonSerializer.Serialize(responseMock)
+            };
+
+            // Configura o mock para retornar 'restResponse' quando o método 'ExecuteAsync' for chamado
             mockRestClient
-                .Setup(client => client.ExecuteAsync(It.IsAny<RestRequest>(), default))
-                .ReturnsAsync(expectedResponse);
+                .Setup(x => x.ExecuteAsync(It.IsAny<RestRequest>(), default))
+                .ReturnsAsync(restResponse);
 
-            var result = await paymentService.CreateAsync(paymentRequest);
+            var config = new PicPayConfig
+            {
+                BaseUrl = BaseUrl.ProductionEcommerce,
+                Token = "123",
+                RestClient = mockRestClient.Object
+            };
 
-            if (result.PaymentResponse is null)
-                Assert.Fail("PaymentResponse is null");
+            // Create the PagBankClient using the mocked IRestClient
+            var client = new PicPayClient(config);
+
+            // Chame o método que utiliza o método ExecuteAsync
+            var response = await client.Payment.CreateAsync(paymentRequest);
+
+            // Verifique o resultado
+            if (response.PaymentResponse is not null)
+                Assert.That(response.PaymentResponse.PaymentUrl, Is.EqualTo("teste ok"));
             else
-                Assert.That(result.PaymentResponse.ReferenceId, Is.EqualTo("102030"));
+                Assert.Fail();
+
         }
     }
 }
